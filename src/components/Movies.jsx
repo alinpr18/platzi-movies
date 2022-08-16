@@ -1,18 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { api } from "../utils/api";
+import { useApi } from "../hooks/useApi";
 
 export default function Movies() {
-  const [movies, setMovies] = useState([]);
+  const { movies, getTrendingMovies, search, getSearchMovies } = useApi();
 
-  async function getTrendingMovies() {
-    try {
-      const { data } = await api.get("/trending/movie/day");
-      setMovies(data.results);
-    } catch (error) {
-      throw error;
-    }
-  }
   useEffect(() => {
     getTrendingMovies();
   }, []);
@@ -21,7 +13,7 @@ export default function Movies() {
     <React.Fragment>
       {movies.map((item) => (
         <article key={item.id}>
-          <Link to={"/movie-detail"}>
+          <Link to={`/movie-detail/${item.id}`}>
             <img
               className="bg-slate-400 max-w-[150px] h-[225px] rounded-md "
               src={`https://image.tmdb.org/t/p/original${item.poster_path}`}

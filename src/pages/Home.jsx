@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import ButtonSearch from "../components/ButtonSearch";
 import Categories from "../components/Categories";
 import Footer from "../components/Footer";
 import Movies from "../components/Movies";
@@ -9,19 +9,7 @@ export default function Home() {
     <React.Fragment>
       <header className="flex flex-col px-6 pt-[43px] gap-4 md:container md:m-auto">
         <h1 className="text-2xl text-[#2A0646] font-extrabold">PlatziMovies</h1>
-        <div className=" rounded-md overflow-hidden w-full flex min-h-[51px]">
-          <input
-            placeholder="Buscar"
-            className="bg-[#EEEAF2] px-4 w-full"
-            type="text"
-          />
-          <Link
-            to="/search"
-            className="bg-[#3E0F64] min-w-[51px] flex items-center justify-center"
-          >
-            🔍
-          </Link>
-        </div>
+        <ButtonSearch />
       </header>
       <main className="md:container md:m-auto">
         <section className=" pt-[52px] gap-[22px] flex flex-col">

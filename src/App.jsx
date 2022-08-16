@@ -9,9 +9,9 @@ export default function App() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/movie-detail" element={<MovieDetail />} />
-      <Route path="/search" element={<Search />} />
-      <Route path="/category" element={<Category />} />
+      <Route path="/movie-detail/:id" element={<MovieDetail />} />
+      <Route path="/search/:keyword" element={<Search />} />
+      <Route path="/category/:id" element={<Category />} />
     </Routes>
   );
 }
